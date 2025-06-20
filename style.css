@@ -39,6 +39,10 @@ input[type='text'] {
   margin-bottom: 10px;
 }
 
+input.erro {
+  border: 2px solid red !important;
+}
+
 button[type='submit'] {
   width: 100%;
   padding: 10px;
