@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     switch (true) {
       case imc < 19.1:
         atualizarResultado(
-          'blue',
+          '#78CCDC',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Abaixo do peso `
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         break;
       case imc >= 19.1 && imc <= 25.8:
         atualizarResultado(
-          'green',
+          '#78DBB1',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Peso Normal `
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         break;
       case imc >= 25.9 && imc <= 27.3:
         atualizarResultado(
-          'yellow',
+          '#DBCF7D',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Pouco Acima do Peso `
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
         break;
       case imc >= 27.4 && imc <= 32.3:
         atualizarResultado(
-          'brown',
+          '#DB443E',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Acima do Peso `
