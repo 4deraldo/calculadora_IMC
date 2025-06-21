@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('calcForm');
-  const nome = document.getElementById('iNome');
-  const altura = document.getElementById('iAltura');
-  const peso = document.getElementById('iPeso');
   const resultado = document.getElementById('resultado');
 
   let campos = document.querySelectorAll('.campoObrigatorio');
@@ -23,13 +20,20 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    //retira o padrão do formulario
-    if (camposValidos) {
-      calcularIMC(peso.value, altura.value);
-    } else {
+    // se não válidos, exibe alerta
+    if (!camposValidos) {
       event.preventDefault();
       alert('Por favor preencher os campos corretamente');
+      return;
     }
+
+    // coleta os dados com FormData
+    const formData = new FormData(form);
+    const nome = formData.get('nome');
+    const altura = parseFloat(formData.get('altura'));
+    const peso = parseFloat(formData.get('peso'));
+
+    calcularIMC(peso, altura, nome);
   });
 
   //verifica se o campo está vazio e desmarca no html
@@ -43,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   //função de calculo do IMC
-  function calcularIMC(peso, altura) {
+  function calcularIMC(peso, altura, nome) {
     let imc = peso / altura ** 2;
     console.log(imc.toFixed(2));
 
@@ -51,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
       case imc < 19.1:
         atualizarResultado(
           'blue',
-          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+          `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Abaixo do peso `
         );
@@ -59,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
       case imc >= 19.1 && imc <= 25.8:
         atualizarResultado(
           'green',
-          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+          `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Peso Normal `
         );
@@ -67,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
       case imc >= 25.9 && imc <= 27.3:
         atualizarResultado(
           'yellow',
-          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+          `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Pouco Acima do Peso `
         );
@@ -75,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
       case imc >= 27.4 && imc <= 32.3:
         atualizarResultado(
           'brown',
-          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+          `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Acima do Peso `
         );
@@ -83,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
       case imc > 32.3:
         atualizarResultado(
           'red',
-          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+          `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Obesidade `
         );
