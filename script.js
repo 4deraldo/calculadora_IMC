@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const resultado = document.getElementById('resultado');
 
   let campos = document.querySelectorAll('.campoObrigatorio');
+
   //verificando se campos estão vazios e marcando de vermelho no html
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -48,34 +49,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
     switch (true) {
       case imc < 19.1:
-        resultado.style.backgroundColor = 'blue';
-        resultado.textContent = `Olá ${nome.value}, seu IMC é ${imc.toFixed(
-          2
-        )}. Você está na categoria: Abaixo do peso `;
+        atualizarResultado(
+          'blue',
+          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+            2
+          )}. Você está na categoria: Abaixo do peso `
+        );
         break;
       case imc >= 19.1 && imc <= 25.8:
-        resultado.style.backgroundColor = 'green';
-        resultado.textContent = `Olá ${nome.value}, seu IMC é ${imc.toFixed(
-          2
-        )}. Você está na categoria: Peso Normal `;
+        atualizarResultado(
+          'green',
+          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+            2
+          )}. Você está na categoria: Peso Normal `
+        );
         break;
       case imc >= 25.9 && imc <= 27.3:
-        resultado.style.backgroundColor = 'yellow';
-        resultado.textContent = `Olá ${nome.value}, seu IMC é ${imc.toFixed(
-          2
-        )}. Você está na categoria: Pouco Acima do Peso `;
+        atualizarResultado(
+          'yellow',
+          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+            2
+          )}. Você está na categoria: Pouco Acima do Peso `
+        );
         break;
       case imc >= 27.4 && imc <= 32.3:
-        resultado.style.backgroundColor = 'brown';
-        resultado.textContent = `Olá ${nome.value}, seu IMC é ${imc.toFixed(
-          2
-        )}. Você está na categoria: Acima do Peso `;
+        atualizarResultado(
+          'brown',
+          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+            2
+          )}. Você está na categoria: Acima do Peso `
+        );
         break;
       case imc > 32.3:
-        resultado.style.backgroundColor = 'red';
-        resultado.textContent = `Olá ${nome.value}, seu IMC é ${imc.toFixed(
-          2
-        )}. Você está na categoria: Obesidade `;
+        atualizarResultado(
+          'red',
+          `Olá ${nome.value}, seu IMC é ${imc.toFixed(
+            2
+          )}. Você está na categoria: Obesidade `
+        );
         break;
 
       default:
@@ -83,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  //função para limpar os resultados
   function atualizarResultado(cor, mensagem) {
     resultado.style.backgroundColor = cor;
     resultado.textContent = mensagem;
