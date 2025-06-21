@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
         break;
       case imc >= 27.4 && imc <= 32.3:
         atualizarResultado(
-          '#DB443E',
+          '#DB8966',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Acima do Peso `
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
         break;
       case imc > 32.3:
         atualizarResultado(
-          'red',
+          '#DB443E',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
           )}. Você está na categoria: Obesidade `
