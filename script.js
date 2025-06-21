@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'blue',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
-          )}kg/m². Você está na categoria: Abaixo do peso `
+          )}. Você está na categoria: Abaixo do peso `
         );
         break;
       case imc >= 19.1 && imc <= 25.8:
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'green',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
-          )}kg/m². Você está na categoria: Peso Normal `
+          )}. Você está na categoria: Peso Normal `
         );
         break;
       case imc >= 25.9 && imc <= 27.3:
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'yellow',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
-          )}kg/m². Você está na categoria: Pouco Acima do Peso `
+          )}. Você está na categoria: Pouco Acima do Peso `
         );
         break;
       case imc >= 27.4 && imc <= 32.3:
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'brown',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
-          )}kg/m². Você está na categoria: Acima do Peso `
+          )}. Você está na categoria: Acima do Peso `
         );
         break;
       case imc > 32.3:
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'red',
           `Olá ${nome}, seu IMC é ${imc.toFixed(
             2
-          )}kg/m². Você está na categoria: Obesidade `
+          )}. Você está na categoria: Obesidade `
         );
         break;
 
